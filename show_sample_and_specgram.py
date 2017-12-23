@@ -48,7 +48,6 @@ class ShowSampleAudio(object):
 if __name__ == '__main__':
     reader = read_data.ReadTrainData(read_data.train_audio_path())
     data_with_labels = reader.getDataWithLabels()
-    sample_list = []
     index = 1
     show_case_limit = 10
     for (label, file_path) in data_with_labels:

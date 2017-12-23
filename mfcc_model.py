@@ -43,7 +43,7 @@ class mfcc_model(object):
 
 if __name__ == '__main__':
     reader = read_data.ReadTrainData(read_data.train_audio_path())
-    data_with_labels = reader.getDataWithLabels()
+    data_with_labels = reader.get_data_With_labels()
     index = 1
     show_case_limit = 3
     for (label, file_path) in data_with_labels:

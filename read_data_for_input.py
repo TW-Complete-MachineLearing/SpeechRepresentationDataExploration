@@ -17,7 +17,7 @@ class ReadTrainData(object):
     def __init__(self, train_file_path):
         self.train_file_path = train_file_path
 
-    def getDataWithLabels(self):
+    def get_data_With_labels(self):
         dataWithLabels = []
         dirTree = os.walk(self.train_file_path)
         labels = []
@@ -39,7 +39,7 @@ class ReadTrainData(object):
 
     def write_list_to_train_folder(self, list_file_path):
         file_list_repo = open(list_file_path, 'w')
-        dataWithLables = self.getDataWithLabels()
+        dataWithLables = self.get_data_With_labels()
         for data in dataWithLables:
             file_list_repo.write(str(data))
             file_list_repo.write("\n")

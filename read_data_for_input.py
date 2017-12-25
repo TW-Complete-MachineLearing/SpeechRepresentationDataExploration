@@ -9,7 +9,7 @@ train_data_list_file_path = lambda: file_path() + "/data/train/repo_list.txt"
 
 # read data
 def read_file_to_sample(one_audio_file_path):
-    sample_rate, sample = wavfile.read(one_audio_file_path, 'rb')
+    sample_rate, sample = wavfile.read(one_audio_file_path)
     return sample
 
 

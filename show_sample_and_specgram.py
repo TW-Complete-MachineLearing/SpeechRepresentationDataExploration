@@ -42,7 +42,7 @@ class ShowSampleAudio(object):
         self.draw_sample()
         freqs, times, spectrogram = log_specgram(self.sample, len(self.sample))
         self.draw_spectrogram(freqs, times, spectrogram)
-        self.fig.show()
+        plt.show()
 
 
 if __name__ == '__main__':

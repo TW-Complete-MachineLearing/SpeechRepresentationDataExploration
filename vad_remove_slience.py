@@ -32,7 +32,7 @@ class vad_remove_silence(object):
         duration = (float(n) / self.sample_rate) / 2.0
         frames = []
         while offset + n < len(self.sample):
-            frames.append(sample[offset:offset + n])
+            frames.append(self.sample[offset:offset + n])
             timestamp += duration
             offset += n
         return frames
@@ -58,12 +58,12 @@ if __name__=='__main__':
             ax1 = plt.subplot(211)
             ax1.set_title('Raw wave of ' + label)
             ax1.set_ylabel('Amplitude')
-            ax1.plot(np.linspace(0, 1, len(sample)), sample)
+            ax1.plot(np.arange(0, len(sample), 1), sample)
 
             ax2 = plt.subplot(212)
             ax2.set_title('vad wave of ' + label)
             ax2.set_ylabel('vad litude')
-            ax2.plot(np.linspace(0, 1, len(vad_sample)), vad_sample)
+            ax2.plot(np.arange(0, len(vad_sample), 1), vad_sample)
 
             plt.show()
 

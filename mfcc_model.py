@@ -3,6 +3,7 @@ import librosa.display
 import numpy as np
 import matplotlib.pyplot as plt
 import read_data_for_input as read_data
+import vad_remove_slience as vad
 
 
 class mfcc_model(object):
@@ -45,7 +46,7 @@ if __name__ == '__main__':
     reader = read_data.ReadTrainData(read_data.train_audio_path())
     data_with_labels = reader.get_data_With_labels()
     index = 1
-    show_case_limit = 3
+    show_case_limit = 20
     for (label, file_path) in data_with_labels:
         if index > show_case_limit:
             break
@@ -54,6 +55,8 @@ if __name__ == '__main__':
             print label, file_path, "\n"
             sample = read_data.read_file_to_sample(file_path)
             print sample
-            mfccer = mfcc_model(sample)
+            vader = vad.vad_remove_silence(sample, 16000)
+            vad_sample = vader.get_vad_sample()
+            mfccer = mfcc_model(vad_sample)
             mfccer.show_first_two_powerest_spectrograms()
     raw_input()

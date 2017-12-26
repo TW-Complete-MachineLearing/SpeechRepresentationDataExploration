@@ -32,6 +32,7 @@ class mfcc_model(object):
 
     def show_first_two_powerest_spectrograms(self):
         delta2_mfcc = self.get_first_two_powerest_spectrograms()
+        print delta2_mfcc, type(delta2_mfcc), delta2_mfcc.shape
         plt.figure(figsize=(12, 4))
         librosa.display.specshow(delta2_mfcc)
         plt.ylabel('MFCC coeffs')
